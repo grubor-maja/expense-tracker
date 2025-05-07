@@ -9,6 +9,20 @@ function ExpenseForm({ onAdd}) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newExpense = { amount, category, date };
+
+        if (isNaN(amount) || Number(amount) <= 0) {
+            alert('Amount must be a positive number.');
+            return;
+        }
+        if (!category.trim()) {
+            alert('Category is required.');
+            return;
+        }
+        if (!date) {
+            alert('Date is required.');
+            return;
+        }
+        
         try {
             await addExpense(newExpense);
             onAdd(); 

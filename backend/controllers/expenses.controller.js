@@ -1,6 +1,12 @@
 const Expense = require('../models/expense.model');
+const { validationResult } = require('express-validator');
 
 exports.createExpense = (req, res) => {
+    const errors = validationResult(req);
+    if(!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
     const { amount, category, date } = req.body;
     Expense.create({amount, category, date}, (err, result) => {
         if(err) {
