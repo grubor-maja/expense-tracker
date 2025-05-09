@@ -3,19 +3,27 @@ const { validationResult } = require('express-validator');
 
 exports.createExpense = (req, res) => {
     const errors = validationResult(req);
-    if(!errors.isEmpty()) {
+    if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
     }
 
     const { amount, category, date } = req.body;
-    Expense.create({amount, category, date}, (err, result) => {
-        if(err) {
+    const expenseItem = {
+        id: Date.now().toString(),  
+        amount,
+        category,
+        date,
+    };
+
+    Expense.create(expenseItem, (err) => {
+        if (err) {
             console.error('Error inserting expense:', err);
-            return res.status(500).json({error: 'Database error'});
+            return res.status(500).json({ error: 'Database error' });
         }
-        res.status(201).json(result);
+        res.status(201).json(expenseItem);
     });
-}
+};
+
 
 exports.getAllExpenses = (req, res) => {
     Expense.getAll((err, results) => {
@@ -23,7 +31,7 @@ exports.getAllExpenses = (req, res) => {
             console.error('Error fetching expenses:', err);
             return res.status(500).json({error: 'Database error'});
         }
-        res.json(results);
+        res.json(results.Items);
     });
 }
 

@@ -7,4 +7,5 @@ const db = mysql.createConnection({
     database: 'expense_tracker'
 });
 
-module.exports = db;
+
+module.exports = {db};
