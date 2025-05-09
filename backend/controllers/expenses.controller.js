@@ -1,5 +1,7 @@
 const Expense = require('../models/expense.model');
 const { validationResult } = require('express-validator');
+const { uploadReport } = require('../services/s3.service');
+
 
 exports.createExpense = (req, res) => {
     const errors = validationResult(req);
@@ -44,3 +46,17 @@ exports.getStats = (req, res) => {
         res.json(results);
     });
 }
+
+exports.uploadTestReport = async (req, res) => {
+    try {
+        const dummyContent = 'This is a test report content.';
+        const fileName = `test-report-${Date.now()}.txt`;
+
+        await uploadReport(dummyContent, fileName, 'text/plain');
+
+        res.status(200).json({ message: 'Report uploaded successfully', fileName });
+    } catch (err) {
+        console.error('Error uploading report:', err);
+        res.status(500).json({ error: 'Failed to upload report' });
+    }
+};

@@ -15,5 +15,6 @@ router.post('/',
     expensesController.createExpense);
 router.get('/', expensesController.getAllExpenses);
 router.get('/stats', expensesController.getStats);
+router.post('/upload-test', expensesController.uploadTestReport);
 
 module.exports = router;
