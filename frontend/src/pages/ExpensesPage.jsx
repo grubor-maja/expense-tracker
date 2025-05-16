@@ -3,11 +3,18 @@ import ExpenseForm from '../features/expenses/ExpenseForm';
 import ExpensesList from '../features/expenses/ExpensesList';
 import { fetchExpenses, fetchStats } from '../services/expensesApi';
 import ExpensesStats from '../features/expenses/ExpensesStats';
+import Sidebar from '../components/Sidebar';
+import { useNavigate } from 'react-router';
+import '../App.css';
+import './ExpensesPage.css';
+import { FaPlus } from "react-icons/fa";
+
 
 function ExpensesPage() {
 
     const [expenses, setExpenses] = useState([]);
     const [stats, setStats] = useState([]);
+    const navigate = useNavigate();
 
     const loadData = async () => {
         try {
@@ -25,11 +32,16 @@ function ExpensesPage() {
     }, []);
 
     return (
-        <div>
-            <h1>Expense Tracker</h1>
-            <ExpenseForm onAdd={loadData} />
-            <ExpensesList expenses={expenses} />
-            <ExpensesStats stats={stats} />
+        <div className="page-wrapper">
+            <Sidebar />
+                <div className="dashboard-wrapper">
+                <div className="tables">
+                    <ExpensesList expenses={expenses} />
+                    <ExpensesStats stats={stats} />
+                </div>
+                <button className='button-add-expense'onClick={() => navigate('/add')}><FaPlus size={11} style={{ marginRight: '5px' }}/>Add Expense</button>
+            </div>
+
         </div>
     )
 }

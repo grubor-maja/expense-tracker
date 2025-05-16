@@ -1,0 +1,50 @@
+:root {
+    --button-color: #646cff;
+    --button-color-hover: #535bf2;
+}
+
+
+.tables {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 200px;
+}
+
+.dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 50px;
+    margin: 50px 0;
+}
+
+.button-add-expense {
+    background-color: var(--button-color);
+    width: 150px;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.5s ease-in-out;
+    align-self: flex-end;
+
+}
+.button-add-expense:hover {
+    background-color: var(--button-color-hover);
+}
+
+.add-expense-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  height: 100vh;
+  width: 100%;
+  padding: 40px;
+  margin: 0 auto;
+  padding-top: 100px;
+  background-color: #1e1e1e;
+  color: white;
+}
