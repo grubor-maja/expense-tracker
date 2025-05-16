@@ -1,0 +1,52 @@
+/* variables */
+:root {
+    --sidebar-bg-color: #181818;
+    --sidebar-text-color: #ffffff;
+    --sidebar-text-color-hover: rgba(255, 255, 255, 0.658);
+    --logo-color: #626bf3;
+}
+.sidebar {
+    width: 300px;
+    min-height: 100vh;
+    background-color:var(--sidebar-bg-color) ;
+    color: var(--sidebar-text-color);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    font-size: 18px;
+    color: var(--logo-color);
+    margin: 0 auto;
+    font-weight: 600;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar nav a {
+    text-decoration: none;
+    color: var(--sidebar-text-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+}
+
+.sidebar nav a p {
+    transition: 0.5s ease-in-out;
+}
+.sidebar nav a p:hover {
+    color: var(--sidebar-text-color-hover);
+}
