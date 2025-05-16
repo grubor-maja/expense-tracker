@@ -52,6 +52,11 @@ In a new terminal:
 ```bash
 cd frontend
 npm install
+
+```
+
+Then start the frontend server:
+```bash
 npm run dev
 ```
 
