@@ -43,9 +43,7 @@ AWS_SECRET_ACCESS_KEY=your-secret-key
 ```
 Then start the backend server:
 ```bash
-AWS_REGION=your-region
-AWS_ACCESS_KEY_ID=your-access-key
-AWS_SECRET_ACCESS_KEY=your-secret-key
+node server.js
 ```
 
 ### 3. Frontend setup
