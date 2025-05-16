@@ -7,6 +7,7 @@ const Expense = {
             TableName: 'Expenses',
             Item: {
                 id: Date.now().toString(),
+                name: data.name,
                 amount: data.amount,
                 category: data.category,
                 date: data.date,

@@ -9,9 +9,10 @@ exports.createExpense = (req, res) => {
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const { amount, category, date } = req.body;
+    const { name, amount, category, date } = req.body;
     const expenseItem = {
         id: Date.now().toString(),  
+        name,
         amount,
         category,
         date,
