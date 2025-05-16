@@ -6,7 +6,7 @@ import ExpensesStats from '../features/expenses/ExpensesStats';
 import Sidebar from '../components/Sidebar';
 import { useNavigate } from 'react-router';
 import '../App.css';
-import './ExpensesPage.css';
+import './DashboardPage.css';
 import { FaPlus } from "react-icons/fa";
 
 

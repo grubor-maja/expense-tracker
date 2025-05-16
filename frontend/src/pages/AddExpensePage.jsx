@@ -1,7 +1,7 @@
 import Sidebar from "../components/Sidebar";
 import ExpenseForm from "../features/expenses/ExpenseForm";
 import { useNavigate } from "react-router-dom";
-import './ExpensesPage.css';
+import './DashboardPage.css';
 
 function AddExpensePage({ reload }) {
   const navigate = useNavigate();
