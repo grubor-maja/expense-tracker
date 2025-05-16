@@ -41,6 +41,8 @@ AWS_REGION=us-east-1
 AWS_ACCESS_KEY_ID=your-access-key
 AWS_SECRET_ACCESS_KEY=your-secret-key
 ```
+These credentials are specific to this project and are generated through the IAM user you received access to.
+
 Then start the backend server:
 ```bash
 node server.js
