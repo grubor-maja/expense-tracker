@@ -14,7 +14,7 @@ function AddExpensePage({ reload }) {
   return (
     <div className="page-wrapper">
       <Sidebar />
-      <div className="add-expense-container">
+      <div className="add-expense-page">
         <h2>Add New Expense</h2>
         <ExpenseForm onAdd={handleAdd} />
       </div>

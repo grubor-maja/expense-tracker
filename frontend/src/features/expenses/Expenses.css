@@ -29,14 +29,14 @@
 
 /* Form */
 
-.form-add-expense {
+.expense-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 400px;
 }
 
-.form-add-expense input {
+.expense-form input {
     padding: 10px;
     border: 1px solid #444;
     margin: 20px 0;
@@ -46,6 +46,6 @@
     color: white;
 }
 
-.form-add-expense button {
+.expense-form button {
     margin: 0 auto;
 }

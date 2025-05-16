@@ -1,7 +1,7 @@
 import { useState, useEffect}   from 'react';
 import ExpenseForm from '../features/expenses/ExpenseForm';
 import ExpensesList from '../features/expenses/ExpensesList';
-import { fetchExpenses, fetchStats } from '../services/expensesApi';
+import { fetchExpenses, fetchStats } from '../services/expensesService';
 import ExpensesStats from '../features/expenses/ExpensesStats';
 import Sidebar from '../components/Sidebar';
 import { useNavigate } from 'react-router';

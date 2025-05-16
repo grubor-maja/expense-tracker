@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { addExpense } from "../../services/expensesApi";
+import { addExpense } from "../../services/expensesService";
 
 function ExpenseForm({ onAdd = () => {} }) {
   const [name, setName] = useState('');
@@ -42,7 +42,7 @@ function ExpenseForm({ onAdd = () => {} }) {
   };
 
   return (
-    <form className='form-add-expense'onSubmit={handleSubmit}>
+    <form className='expense-form'onSubmit={handleSubmit}>
       <input value={name} onChange={e => setName(e.target.value)} placeholder="Name" />
       <input value={amount} onChange={e => setAmount(e.target.value)} placeholder="Amount in $" />
       <input value={category} onChange={e => setCategory(e.target.value)} placeholder="Category" />

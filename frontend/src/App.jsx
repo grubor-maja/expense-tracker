@@ -2,35 +2,31 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AddExpensePage from './pages/AddExpensePage';
-import ExpensesPage from './pages/ExpensesPage';
-import { fetchExpenses, fetchStats } from './services/expensesApi';
+import DashboardPage from './pages/DashboardPage';
+import { fetchExpenses, fetchStats } from './services/expensesService';
 
 function App() {
-  const [expenses, setExpenses] = useState([]);
-  const [stats, setStats] = useState([]);
+const [expenses, setExpenses] = useState([]);
+const [expenseStats, setExpenseStats] = useState([]);
 
-  const loadData = async () => {
-    try {
-      const expensesResponse = await fetchExpenses();
-      setExpenses(expensesResponse.data);
-      const statsResponse = await fetchStats();
-      setStats(statsResponse.data);
-    } catch (error) {
-      console.error('Error loading data:', error);
-    }
-  };
+const loadExpensesData = async () => {
+  const res1 = await fetchExpenses();
+  setExpenses(res1.data);
+  const res2 = await fetchStats();
+  setExpenseStats(res2.data);
+};
 
   useEffect(() => {
-    loadData();
+    loadExpensesData();
   }, []);
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={
-          <ExpensesPage expenses={expenses} stats={stats} reload={loadData} />
+          <DashboardPage expenses={expenses} stats={expenseStats} reload={loadExpensesData} />
         } />
-        <Route path="/add" element={<AddExpensePage reload={loadData} />} />
+        <Route path="/add" element={<AddExpensePage reload={loadExpensesData} />} />
       </Routes>
     </Router>
   );
